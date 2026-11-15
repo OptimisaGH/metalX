@@ -1,7 +1,7 @@
 # metalX
 metalX is a conversion tool that lets windows apps or games run on macOS with GPTK4 using SwiftUI
 <p align="center">
-  <img src="Resources/AppIcon.png" width="128" alt="metalX icon">
+  <img src="icon.png" width="128" alt="metalX icon">
 </p>
 
 <h1 align="center">metalX</h1>
