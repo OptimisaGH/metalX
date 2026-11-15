@@ -81,4 +81,4 @@ metalX is not affiliated with or endorsed by Apple, Microsoft, Valve, NVIDIA or 
 
 Copyright (c) 2026 OptimisaGH. **All Rights Reserved.**
 
-The source code is published for viewing only. No permission is granted to copy, modify, distribute or use it without prior written permission from the copyright holder. See [LICENSE](LICENSE).
+[The source code is published for viewing only. No permission is granted to copy, modify, distribute or use it without prior written permission from the copyright holder. See [LICENSE](LICENSE.md)].
