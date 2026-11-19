@@ -1,5 +1,3 @@
-# metalX
-metalX is a conversion tool that lets windows apps or games run on macOS with GPTK4 using SwiftUI
 <p align="center">
   <img src="icon.png" width="128" alt="metalX icon">
 </p>
@@ -7,7 +5,7 @@ metalX is a conversion tool that lets windows apps or games run on macOS with GP
 <h1 align="center">metalX</h1>
 
 <p align="center">
-  Run Windows apps on your Mac, export them as native <code>.app</code> / <code>.dmg</code>, and choose your graphics API, all from one minimalist SwiftUI window.
+  Run Windows apps on your Mac, export them as native <code>.app</code> / <code>.dmg</code>, and choose your graphics API, all from one minimalist window.
 </p>
 
 ---
@@ -18,20 +16,22 @@ metalX is a conversion tool that lets windows apps or games run on macOS with GP
 - **Graphics API selector:** pick **D3DMetal**, **DXMT**, **DXVK** or **WineD3D (OpenGL)** from a dropdown, with a short description of each.
 - **Steam launcher:** one click sets up a dedicated Windows bottle, downloads the Steam installer and launches Steam.
 - **Metal HUD toggle:** show Apple's Metal performance overlay.
-- **First-launch setup:** if Wine isn't installed, metalX offers to download and install it in the background.
+- **Automatic setup:** on first launch, metalX offers to download and install Wine in the background, then downloads the graphics APIs (DXMT, DXVK, D3DMetal). Anything you already have is skipped.
+- **Automatic updates:** when a newer release is available, metalX shows an "Update required" popup and replaces itself with the new version.
 - **Minimal SF Pro interface:** native SwiftUI, nothing extra.
 
 ## Requirements
 
 - macOS 13 or later
-- Apple Silicon (M1/M2/M3/M4/M5)
+- Apple Silicon
 
-## Installing
+## Download and install
 
-1. Download `metalX.dmg` from Releases
+1. Download the latest **metalX.dmg** from the [Releases](../../releases) page.
 2. Open it and drag **metalX** into **Applications**.
-3. The app is ad-hoc signed, so the first time, right-click it and choose **Open**.
+3. The first time, right-click the app and choose **Open**.
 4. On first launch, click **Install** in the "Install Dependencies" popup. Wine (about 230 MB) is downloaded and installed in the background. Click **Finish** when it's done.
+5. A "Download Graphic APIs" popup follows. Click **Download** to get DXMT, DXVK and D3DMetal (about 260 MB in total). D3DMetal requires Rosetta 2 (`softwareupdate --install-rosetta`).
 
 ## Usage
 
@@ -46,12 +46,12 @@ Exported apps contain a copy of the `.exe`'s folder and a launcher that runs it 
 
 | Option | Best for | Notes |
 |---|---|---|
-| **D3DMetal** | DirectX 11 / 12 | Apple's translation layer. Requires a Game Porting Toolkit Wine build, which metalX does not install automatically. |
-| **DXMT** | DirectX 10 / 11 | Metal-native. Place the DXMT files in `~/Library/Application Support/metalX/Backends/DXMT/x64/`. |
-| **DXVK** | DirectX 9 / 10 / 11 | Runs through Vulkan (MoltenVK). Place the DXVK DLLs in `~/Library/Application Support/metalX/Backends/DXVK/x64/`. |
+| **D3DMetal** | DirectX 11 / 12 | Apple's translation layer, downloaded as a Game Porting Toolkit build. Runs in its own Wine and bottle. Needs Rosetta 2. |
+| **DXMT** | DirectX 10 / 11 | Metal-native. Experimental. |
+| **DXVK** | DirectX 9 / 10 / 11 | Runs through Vulkan (MoltenVK). |
 | **WineD3D (OpenGL)** | Fallback | Built into Wine. Slowest, but works out of the box. This is the default. |
 
-For DXVK and DXMT, metalX copies the DLLs into the bottle and sets the DLL overrides for you.
+metalX copies the right files into the bottle and sets the DLL overrides for you when you pick an API.
 
 ## Data locations
 
@@ -59,11 +59,14 @@ For DXVK and DXMT, metalX copies the DLLs into the bottle and sets the DLL overr
 - Bottles: `~/Library/Application Support/metalX/Bottles`
 - Backend files: `~/Library/Application Support/metalX/Backends`
 
+To uninstall completely, delete the app and that `metalX` folder.
+
 ## Known limitations
 
 - Not every Windows app or game will run, and performance varies by title and graphics API.
+- Apps that need an NVIDIA GPU or driver (for example, the NVIDIA App) will not work.
 - Anti-cheat and kernel-level drivers generally don't work under Wine.
-- D3DMetal, DXVK and DXMT files must currently be added manually.
+- D3DMetal, DXVK and DXMT come from third-party builds and their compatibility varies by game.
 
 ## Credits
 
@@ -81,4 +84,4 @@ metalX is not affiliated with or endorsed by Apple, Microsoft, Valve, NVIDIA or 
 
 Copyright (c) 2026 OptimisaGH. **All Rights Reserved.**
 
-[The source code is published for viewing only. No permission is granted to copy, modify, distribute or use it without prior written permission from the copyright holder. See [LICENSE](LICENSE.md)].
+metalX is proprietary, closed-source software. You may download and use the released app for personal use. You may not copy, modify, redistribute, reverse engineer or sell it without prior written permission from the copyright holder. See [LICENSE](LICENSE).
