@@ -84,4 +84,4 @@ metalX is not affiliated with or endorsed by Apple, Microsoft, Valve, NVIDIA or 
 
 Copyright (c) 2026 OptimisaGH. **All Rights Reserved.**
 
-metalX is proprietary, closed-source software. You may download and use the released app for personal use. You may not copy, modify, redistribute, reverse engineer or sell it without prior written permission from the copyright holder. See [LICENSE](LICENSE).
+metalX is proprietary, closed-source software. You may download and use the released app for personal use. You may not copy, modify, redistribute, reverse engineer or sell it without prior written permission from the copyright holder. See [LICENSE](LICENSE.md).
